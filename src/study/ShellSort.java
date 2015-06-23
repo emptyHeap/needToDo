@@ -5,6 +5,7 @@ public class ShellSort extends Sort{
 	
 	/**
 	 * меняет множитель шага
+	 * =(
 	 * 
 	 * @param multiplier новый множитель шага
 	 */
@@ -23,12 +24,15 @@ public class ShellSort extends Sort{
 		int N = array.length;
 		int h = 1;
 		while (h < N/multiplier){h = multiplier*h + 1;}
+
 		while (h >= 1){
 			for (int i = h; i < N; i++){
-				for (int j = i; j>=h && less(array, j, j-h); j -=h ){
+				for (int j = i; j>=h && less(array, j, j-h); j-=h ){
 					exch(array, j, j-h);
 				}
 			}
+			h /= 3;
 		}
+		
 	}
 }
