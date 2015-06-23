@@ -7,7 +7,7 @@ public abstract class Sort {
 	 * @param args массив в строковом виде (если не приводится к int то используется лексикографическиая сортиворка)
 	 */
 	public static void main(String[] args){
-		Comparable[] array = new Comparable[args.length];
+		/*Comparable[] array = new Comparable[args.length];
 		for (int i = 0; i < args.length; i++){
 			try{
 				array[i] = Integer.parseInt(args[i]);
@@ -15,7 +15,8 @@ public abstract class Sort {
 				array = args;
 				break;
 			}
-		}
+		}*/
+		Comparable[] array = Randomizer.getArray(10);
 		print(array);
 		sort(array);
 		print(array);
@@ -23,7 +24,7 @@ public abstract class Sort {
 	}
 	public static boolean isSort(Comparable[] array){
 		for (int i = 0; i < array.length-1; i++){
-			if (less(array,i,i+1)) return false;
+			if (less(array,i+1,i)) return false;
 		}
 		return true;
 	}
@@ -58,7 +59,7 @@ public abstract class Sort {
 	public static void exch(Comparable[] array, int i, int j){
 		Comparable buffer = array[i];
 		array[i] = array[j];
-		array[j] = array[i];
+		array[j] = buffer;
 	}
 	/**
 	 * Отобразить элементы массива в консоли

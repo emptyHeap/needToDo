@@ -1,7 +1,7 @@
 package study;
 
-public class SelectionSort extends Sort {
-	
+public class InsertionSort extends Sort{
+
 	public static void main(String[] args){
 		Comparable[] array = Randomizer.getArray(100);
 		sort(array);
@@ -11,15 +11,10 @@ public class SelectionSort extends Sort {
 	
 	public static void sort(Comparable[] array){
 		int N = array.length;
-		int min;
-		for (int i = 0; i < N; i++){
-			min = i;
-			for (int j = i+1; j < N; j++){
-				if (less(array, j, min)){
-					min = j;
-				}
+		for (int i = 1; i < N; i++){
+			for (int j = i; j > 0 && less(array, j, j-1); j--){
+				exch(array, j, j-1);
 			}
-			exch(array, i, min);
 		}
 	}
 }
