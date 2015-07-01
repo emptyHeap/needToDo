@@ -24,7 +24,10 @@ public abstract class Sort {
 	}
 	public static boolean isSort(Comparable[] array){
 		for (int i = 0; i < array.length-1; i++){
-			if (less(array,i+1,i)) return false;
+			if (less(array,i+1,i)) {
+				System.out.println(array[i+1] + " < " +array[i]);
+				return false;
+			}
 		}
 		return true;
 	}
@@ -37,7 +40,8 @@ public abstract class Sort {
 	 * @return результат
 	 */
 	public static boolean less(Comparable[] array, int firstIndex, int secondIndex){
-		return array[firstIndex].compareTo(array[secondIndex]) < 0;
+		return array[firstIndex].
+				compareTo(array[secondIndex]) < 0;
 	}
 	/**
 	 * первый элемент меньше второго?

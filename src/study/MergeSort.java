@@ -23,17 +23,17 @@ public class MergeSort extends Sort{
 	 * @param high верхний индекс
 	 */
 	public static void merge(Comparable[] array, int low, int mid, int high){
-		if (low > mid || mid > high) return;
-		int firstIndex = mid;
+
+		int firstIndex = low;
 		int secondIndex = mid+1;
-		for (int k = 0; k < high - low; k++){
+		for (int k = low; k <= high; k++){
 			buffer[k] = array[k];
 		}
-		for (int k = low; k < high; k++){
+		for (int k = low; k <= high; k++){
 			if (firstIndex > mid)			array[k] = buffer[secondIndex++];
 			else if (secondIndex > high)	array[k] = buffer[firstIndex++];
-			else if (less(array, firstIndex, secondIndex))	array[k] = buffer[firstIndex++];
-			else 							array[k] = buffer[secondIndex++];
+			else if (less(buffer, secondIndex, firstIndex))	array[k] = buffer[secondIndex++];
+			else 							array[k] = buffer[firstIndex++];
 		}
 	}
 	/**
