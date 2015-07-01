@@ -15,7 +15,7 @@ public class MergeSort extends Sort{
 	/**
 	 * Слияние части массива
 	 * !порядок индексов не проверяется
-	 * (возможен цикл с nullPointer при неправельных low mid high)
+	 * (возможен цикл с nullPointer при <a> low mid high)
 	 * 
 	 * @param array начальный массив
 	 * @param low нижний индекс
